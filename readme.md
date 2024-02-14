@@ -2,9 +2,9 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/adamelliotfields/chat?devcontainer_path=.devcontainer/devcontainer.json&machine=basicLinux32gb)
 
-Static chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Inspired by [Perplexity Labs](https://labs.perplexity.ai): [**aef.me/chat**](https://aef.me/chat/)
+Static chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Inspired by [Perplexity Labs](https://labs.perplexity.ai).
 
-https://raw.githubusercontent.com/adamelliotfields/chat/main/demo.mp4
+https://github.com/adamelliotfields/chat/assets/7433025/07565763-606b-4de3-aa2d-8d5a26c83941
 
 ## Introduction
 
