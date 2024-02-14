@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig } from 'vite'
 
-export default defineConfig({
-  base: '/chat/',
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/chat/' : '/',
   build: {
     chunkSizeWarningLimit: 5120,
     target: 'esnext'
@@ -12,4 +12,4 @@ export default defineConfig({
       plugins: [['@swc-jotai/react-refresh', {}]]
     })
   ]
-})
+}))
