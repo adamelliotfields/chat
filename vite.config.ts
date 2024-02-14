@@ -3,7 +3,8 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   build: {
-    chunkSizeWarningLimit: 5120
+    chunkSizeWarningLimit: 5120,
+    target: 'esnext'
   },
   plugins: [
     react({
