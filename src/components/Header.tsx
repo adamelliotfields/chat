@@ -18,7 +18,7 @@ export const Header = memo(function Header({ className, ...rest }: HeaderProps) 
           <a
             href={HREF}
             className={clsx(
-              'px-1 py-0.5 font-mono font-black text-lg text-neutral-600 tracking-wide',
+              'px-1 py-0.5 font-mono font-extrabold text-lg text-neutral-600 tracking-wide',
               'focus:ring-2 focus:ring-cyan-500 focus-visible:outline-none'
             )}
             target="_blank"

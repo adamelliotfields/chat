@@ -55,7 +55,6 @@ export function ModelSelect({ className, handleClick, ...rest }: ModelSelectProp
         className={clsx(
           'w-full rounded-md border-0 mt-3 py-1.5 pl-3 ring-1 ring-inset ring-neutral-200',
           'focus:ring-2 focus:ring-cyan-500',
-          'sm:text-sm sm:leading-6',
           'md:mt-0'
         )}
         value={selectedModelId ?? ''}

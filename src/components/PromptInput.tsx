@@ -26,16 +26,15 @@ export function PromptInput({ className, handleClick, ...rest }: PromptInputProp
   return (
     <div
       className={clsx(
-        'p-2 flex items-center w-full bg-white outline-none border border-neutral-200 placeholder-neutral-400 rounded-t-[32px] rounded-b-[32px]',
+        'p-2 flex items-center w-full rounded-md bg-white outline-none border border-neutral-200 placeholder-neutral-400',
         'focus:outline-none focus:ring-1',
         className
       )}
       {...rest}
     >
       <textarea
-        style={{ height: '40px' }}
         className={clsx(
-          'flex-grow flex-shrink p-2 overflow-auto outline-none w-full font-sans resize-none caret-cyan-500 bg-white text-neutral-900 border-0',
+          'h-10 flex-grow flex-shrink p-2 overflow-auto outline-none w-full font-sans resize-none caret-cyan-500 bg-white text-neutral-900 border-0',
           'focus:ring-0',
           'placeholder:text-neutral-400/50'
         )}
