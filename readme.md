@@ -111,13 +111,12 @@ See [utils/vram_requirements](https://github.com/mlc-ai/web-llm/tree/main/utils/
 
 ## TODO
 
-- [ ] Improve prompt input
 - [ ] Dark mode
 - [ ] Settings menu (temperature, system message, etc.)
+- [ ] Adapters for alternative backends (e.g., Ollama)
 - [ ] Inference on web worker
 - [ ] Offline/PWA
 - [ ] GPU stats
 - [ ] Image upload for multimodal like [LLaVA](https://llava-vl.github.io)
-- [ ] Audio I/O
 - [ ] [StableLM Zephyr 3B](https://huggingface.co/stabilityai/stablelm-zephyr-3b)
 - [ ] Tailwind class sorting by Biome 🤞
