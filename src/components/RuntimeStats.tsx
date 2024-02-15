@@ -1,6 +1,5 @@
 import clsx from 'clsx'
 import { useAtomValue } from 'jotai'
-import { Gauge } from 'lucide-react'
 import type { HTMLAttributes } from 'react'
 
 import { runtimeStatsTextAtom } from '../atoms'
@@ -11,23 +10,20 @@ export function RuntimeStats({ className }: RuntimeStatsProps) {
   const statsText = useAtomValue(runtimeStatsTextAtom)
   const stats = parseRuntimeStatsText(statsText)
 
-  const classNames = 'font-mono text-sm leading-none tracking-wide uppercase md:pl-4'
+  const classNames = 'font-mono text-base leading-none tracking-wide uppercase md:pl-4'
 
   return (
     // runtime stats
-    <div className={clsx('flex flex-wrap items-center gap-x-4 md:divide-x', className)}>
-      <div className="-mt-1 text-lg leading-none text-neutral-400 md:mt-0">
-        <Gauge size="1em" />
-      </div>
+    <div className={clsx('ml-1 flex items-center md:ml-5', className)}>
       {/* prefilling stats */}
       <div className={classNames}>
-        <span className="text-neutral-900">{stats.prefill}</span>
-        <span className="text-neutral-400">&nbsp;tokens/sec prefill</span>
+        <span className="text-neutral-900">{stats.prefill} tokens/sec</span>
+        <span className="text-neutral-400">{' prefilling'}</span>
       </div>
       {/* decoding stats */}
-      <div className={classNames}>
-        <span className="text-neutral-900">{stats.decode}</span>
-        <span className="text-neutral-400">&nbsp;tokens/sec decode</span>
+      <div className={clsx('ml-4 md:ml-0', classNames)}>
+        <span className="text-neutral-900">{stats.decode} tokens/sec</span>
+        <span className="text-neutral-400">{' decoding'}</span>
       </div>
     </div>
   )
