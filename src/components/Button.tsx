@@ -12,7 +12,6 @@ export type ButtonProps = Omit<
   onClick?: ButtonHTMLAttributes<HTMLButtonElement>['onClick']
 }
 
-// TODO: take "size" prop which controls the padding
 export function Button({
   active = false,
   className,
@@ -33,7 +32,7 @@ export function Button({
   const disabledClassNames = 'text-neutral-400/50 cursor-not-allowed'
 
   const classNames = clsx(
-    'leading-none rounded-full focus-visible:outline-none',
+    'p-2 leading-none rounded-full focus-visible:outline-none',
     disabled && disabledClassNames,
     !disabled && enabledClassNames,
     !disabled && active && enabledActiveClassNames,

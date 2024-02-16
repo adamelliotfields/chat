@@ -45,7 +45,7 @@ export function PromptInput({ className, handleClick, ...rest }: PromptInputProp
       />
       <div className="flex items-center justify-self-end bg-white rounded-full space-x-2">
         <Button
-          className="p-2 text-lg"
+          className="text-lg"
           disabled={disabled}
           label="Send"
           icon={SendHorizontal}

@@ -28,7 +28,23 @@ Using the demo app at [webllm.mlc.ai](https://webllm.mlc.ai), I did not have to 
 
 ### Fetch errors
 
-For whatever reason, I have to be behind a VPN to fetch the models from Hugging Face on Windows (using the same DNS settings). 🤷‍♂️
+For whatever reason, I have to be behind a VPN to fetch the models from Hugging Face on Windows. 🤷‍♂️
+
+### Cannot find global function
+
+Usually a cache issue.
+
+You can delete an individual cache:
+
+```js
+await caches.delete('webllm/wasm')
+```
+
+Or all caches:
+
+```js
+await caches.keys().then(keys => Promise.all(keys.map(key => caches.delete(key))))
+```
 
 ## Reference
 
@@ -116,6 +132,7 @@ See [utils/vram_requirements](https://github.com/mlc-ai/web-llm/tree/main/utils/
 - [ ] Adapters for alternative backends (e.g., Ollama)
 - [ ] Inference on web worker
 - [ ] Offline/PWA
+- [ ] Cache management
 - [ ] GPU stats
 - [ ] Image upload for multimodal like [LLaVA](https://llava-vl.github.io)
 - [ ] [StableLM Zephyr 3B](https://huggingface.co/stabilityai/stablelm-zephyr-3b)
