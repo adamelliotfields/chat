@@ -208,7 +208,7 @@ export default function App({ chat }: AppProps) {
                 disabled={trashDisabled}
                 label="Reset"
                 icon={Trash}
-                className="mr-2 p-2 text-lg"
+                className="mr-2 text-lg"
                 onClick={handleResetClick}
               />
               <div className="grow">
@@ -218,7 +218,7 @@ export default function App({ chat }: AppProps) {
                 disabled={stopDisabled}
                 label="Stop"
                 icon={Square}
-                className="ml-2 p-2 text-lg"
+                className="ml-2 text-lg"
                 onClick={handleStopClick}
               />
             </div>

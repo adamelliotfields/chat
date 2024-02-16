@@ -69,7 +69,7 @@ export function ModelSelect({ className, handleClick, ...rest }: ModelSelectProp
       <Button
         disabled={loading}
         active={activeModelId === selectedModelId}
-        className="-mr-0.5 ml-3 p-1 text-base"
+        className="ml-2 mt-3 -mr-2 text-lg md:mt-0"
         icon={Power}
         label="Reload"
         onClick={handleClickWithModel}
