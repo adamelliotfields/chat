@@ -2,7 +2,7 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/adamelliotfields/chat?devcontainer_path=.devcontainer/devcontainer.json&machine=basicLinux32gb)
 
-Static chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Inspired by [Perplexity Labs](https://labs.perplexity.ai).
+React chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Inspired by [Perplexity Labs](https://labs.perplexity.ai).
 
 https://github.com/adamelliotfields/chat/assets/7433025/07565763-606b-4de3-aa2d-8d5a26c83941
 
@@ -129,11 +129,8 @@ See [utils/vram_requirements](https://github.com/mlc-ai/web-llm/tree/main/utils/
 
 - [ ] Dark mode
 - [ ] Settings menu (temperature, system message, etc.)
-- [ ] Adapters for alternative backends (e.g., Ollama)
 - [ ] Inference on web worker
 - [ ] Offline/PWA
 - [ ] Cache management
-- [ ] GPU stats
 - [ ] Image upload for multimodal like [LLaVA](https://llava-vl.github.io)
-- [ ] [StableLM Zephyr 3B](https://huggingface.co/stabilityai/stablelm-zephyr-3b)
 - [ ] Tailwind class sorting by Biome 🤞
