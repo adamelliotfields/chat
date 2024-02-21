@@ -2,7 +2,7 @@ import { ChatModule } from '@mlc-ai/web-llm'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { RESET } from 'jotai/utils'
 import { Square, Trash } from 'lucide-react'
-import { type MouseEvent } from 'react'
+import { type MouseEvent, useEffect } from 'react'
 
 import {
   activeModelIdAtom,
@@ -32,12 +32,27 @@ export default function App({ chat }: AppProps) {
   const [generating, setGenerating] = useAtom(generatingAtom)
   const [loading, setLoading] = useAtom(loadingAtom)
   const [conversation, setConversation] = useAtom(conversationAtom)
-  const setActiveModelId = useSetAtom(activeModelIdAtom)
+  const [activeModelId, setActiveModelId] = useAtom(activeModelIdAtom)
   const setStatsText = useSetAtom(runtimeStatsTextAtom)
   const config = useAtomValue(configAtom)
 
   const trashDisabled = conversation.messages.length < 1
   const stopDisabled = loading || !generating
+
+  // set initial status message
+  useEffect(() => {
+    const content =
+      "### Welcome\n\nThis app runs _small_ LLMs in your browser using your device's GPU. Select a model and press the power button to load it.\n\nErrors? Check [webgpureport.org](https://webgpureport.org) to inspect your system. A VPN can get around some network issues.\n\nRefresh the page to see this message again."
+    setConversation(() => ({
+      messages: [
+        {
+          messageRole: 'status',
+          content
+        }
+      ],
+      stream: null
+    }))
+  }, [setConversation])
 
   const onGenerate: GenerateCallback = (_, content) => {
     setConversation(({ messages }) => ({
@@ -185,13 +200,13 @@ export default function App({ chat }: AppProps) {
           <div className="w-full max-w-screen-lg mx-auto">
             <MessageList
               // change `scroll` to `auto` if you don't like the scrollbars being always visible
-              className="h-[calc(100vh_-_56px_-_192px)] overflow-y-scroll md:h-[calc(100vh_-_56px_-_160px)]"
+              className="h-[calc(100vh_-_56px_-_204px)] overflow-y-scroll md:h-[calc(100vh_-_56px_-_160px)]"
             />
           </div>
         </main>
       </div>
 
-      <footer className="h-[192px] bg-neutral-50 sticky bottom-0 border-t z-20 md:h-[160px]">
+      <footer className="h-[204px] bg-neutral-50 sticky bottom-0 border-t z-20 md:h-[160px]">
         {/* footer top row */}
         <div className="max-w-screen-lg mx-auto">
           <div className="p-4 flex flex-col justify-between md:border-x md:flex-row md:items-center">
@@ -212,7 +227,10 @@ export default function App({ chat }: AppProps) {
                 onClick={handleResetClick}
               />
               <div className="grow">
-                <PromptInput handleClick={handleInputButtonClick} />
+                <PromptInput
+                  activeModelId={activeModelId}
+                  handleClick={handleInputButtonClick}
+                />
               </div>
               <Button
                 disabled={stopDisabled}
