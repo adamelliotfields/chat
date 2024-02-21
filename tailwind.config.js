@@ -4,7 +4,7 @@ import typographyPlugin from '@tailwindcss/typography'
 
 /** @type {import('tailwindcss').Config} */
 const config = {
-  content: ['./src/**/*.{html,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   plugins: [formsPlugin, headlessuiPlugin, typographyPlugin],
   theme: { extend: {} }
 }
