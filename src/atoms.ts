@@ -1,11 +1,7 @@
-import { type AppConfig } from '@mlc-ai/web-llm'
 import { atom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
-import config from './config'
-import { type Conversation } from './types'
 
-// the app config
-export const configAtom = atom<AppConfig>(config)
+import { type Conversation } from './types'
 
 // the loaded model
 export const activeModelIdAtom = atomWithReset<string | null>(null)
