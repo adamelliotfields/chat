@@ -1,11 +1,13 @@
+import { type AppConfig } from '@mlc-ai/web-llm'
 import clsx from 'clsx'
 import { useAtomValue } from 'jotai'
 import { Power } from 'lucide-react'
 import { type ChangeEvent, type HTMLAttributes, type MouseEvent, useState } from 'react'
-import { activeModelIdAtom, configAtom, loadingAtom } from '../atoms'
+import { activeModelIdAtom, loadingAtom } from '../atoms'
 import { Button } from './Button'
 
 export interface ModelSelectProps extends HTMLAttributes<HTMLDivElement> {
+  config: AppConfig
   handleClick: (
     event: MouseEvent<HTMLButtonElement>,
     content: string | null
@@ -14,8 +16,12 @@ export interface ModelSelectProps extends HTMLAttributes<HTMLDivElement> {
 
 // TODO: check if device has enough storage buffer like in the example and only enable models with `low_resource_required`
 // https://github.com/mlc-ai/web-llm/blob/main/examples/simple-chat/src/simple_chat.ts
-export function ModelSelect({ className, handleClick, ...rest }: ModelSelectProps) {
-  const config = useAtomValue(configAtom)
+export function ModelSelect({
+  className,
+  config,
+  handleClick,
+  ...rest
+}: ModelSelectProps) {
   const activeModelId = useAtomValue(activeModelIdAtom)
   const loading = useAtomValue(loadingAtom)
 
@@ -32,15 +38,13 @@ export function ModelSelect({ className, handleClick, ...rest }: ModelSelectProp
   const handleClickWithModel = async (e: MouseEvent<HTMLButtonElement>) => {
     if (loading) return
 
-    // unload the active model
-    if (activeModelId) {
+    // unload the active model if it's the same as the selected one
+    if (activeModelId === selectedModelId) {
       return await handleClick(e, null)
     }
 
-    // load the selected model
-    if (!activeModelId && selectedModelId) {
-      await handleClick(e, selectedModelId)
-    }
+    // otherwise load the selected model
+    await handleClick(e, selectedModelId)
   }
 
   return (

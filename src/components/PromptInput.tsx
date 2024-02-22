@@ -1,23 +1,20 @@
 import clsx from 'clsx'
+import { useAtomValue } from 'jotai'
 import { SendHorizontal } from 'lucide-react'
 import { type ChangeEvent, type HTMLAttributes, type MouseEvent, useState } from 'react'
 
+import { activeModelIdAtom } from '../atoms'
 import { Button } from './Button'
 
 export interface PromptInputProps extends HTMLAttributes<HTMLDivElement> {
-  activeModelId?: string | null
   handleClick: (
     event: MouseEvent<HTMLButtonElement>,
     content: string
   ) => Promise<void> | void
 }
 
-export function PromptInput({
-  activeModelId = null,
-  className,
-  handleClick,
-  ...rest
-}: PromptInputProps) {
+export function PromptInput({ className, handleClick, ...rest }: PromptInputProps) {
+  const activeModelId = useAtomValue(activeModelIdAtom)
   const [value, setValue] = useState<string>('')
   const buttonDisabled = value.length < 1
   const inputDisabled = activeModelId === null

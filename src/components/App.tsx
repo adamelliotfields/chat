@@ -1,12 +1,11 @@
-import { ChatModule } from '@mlc-ai/web-llm'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { type AppConfig, ChatModule } from '@mlc-ai/web-llm'
+import { useAtom, useSetAtom } from 'jotai'
 import { RESET } from 'jotai/utils'
 import { Square, Trash } from 'lucide-react'
 import { type MouseEvent, useEffect } from 'react'
 
 import {
   activeModelIdAtom,
-  configAtom,
   conversationAtom,
   generatingAtom,
   loadingAtom,
@@ -26,15 +25,15 @@ type GenerateCallback = (step: number, content: string) => void
 
 interface AppProps {
   chat: ChatModule
+  config: AppConfig
 }
 
-export default function App({ chat }: AppProps) {
+export default function App({ chat, config }: AppProps) {
   const [generating, setGenerating] = useAtom(generatingAtom)
   const [loading, setLoading] = useAtom(loadingAtom)
   const [conversation, setConversation] = useAtom(conversationAtom)
-  const [activeModelId, setActiveModelId] = useAtom(activeModelIdAtom)
+  const setActiveModelId = useSetAtom(activeModelIdAtom)
   const setStatsText = useSetAtom(runtimeStatsTextAtom)
-  const config = useAtomValue(configAtom)
 
   const trashDisabled = conversation.messages.length < 1
   const stopDisabled = loading || !generating
@@ -211,7 +210,7 @@ export default function App({ chat }: AppProps) {
         <div className="max-w-screen-lg mx-auto">
           <div className="p-4 flex flex-col justify-between md:border-x md:flex-row md:items-center">
             <RuntimeStats />
-            <ModelSelect handleClick={handleReloadClick} />
+            <ModelSelect config={config} handleClick={handleReloadClick} />
           </div>
         </div>
 
@@ -227,10 +226,7 @@ export default function App({ chat }: AppProps) {
                 onClick={handleResetClick}
               />
               <div className="grow">
-                <PromptInput
-                  activeModelId={activeModelId}
-                  handleClick={handleInputButtonClick}
-                />
+                <PromptInput handleClick={handleInputButtonClick} />
               </div>
               <Button
                 disabled={stopDisabled}

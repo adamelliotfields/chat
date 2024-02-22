@@ -1,9 +1,13 @@
 import './index.css'
 
-import { ChatModule } from '@mlc-ai/web-llm'
+import { ChatModule, hasModelInCache } from '@mlc-ai/web-llm'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import App from './components/App'
+import config from './config'
+
+const chat = new ChatModule()
 
 const NODE_ENV = import.meta.env.DEV
   ? 'development'
@@ -11,13 +15,8 @@ const NODE_ENV = import.meta.env.DEV
     ? 'production'
     : import.meta.env.MODE
 
-// outside app so it doesn't new-up on re-renders
-const chat = new ChatModule()
-
 // debug mode
 if (NODE_ENV !== 'production') {
-  const { hasModelInCache } = await import('@mlc-ai/web-llm')
-  const { default: config } = await import('./config.ts')
   // @ts-ignore
   window.chat = chat
   // @ts-ignore
@@ -34,5 +33,9 @@ const container = window.document.getElementById('root')
 
 if (container) {
   const root = createRoot(container)
-  root.render(<App chat={chat} />)
+  root.render(
+    <StrictMode>
+      <App chat={chat} config={config} />
+    </StrictMode>
+  )
 }
