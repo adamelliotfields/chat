@@ -1,6 +1,8 @@
 {
-  "editor.quickSuggestions": { "strings": "on" },
   "editor.rulers": [88],
+
+  // tailwind
+  "editor.quickSuggestions": { "strings": "on" },
   "files.associations": { "*.css": "tailwindcss" },
   "tailwindCSS.classAttributes": ["class", "className", "classes", "classNames"],
 

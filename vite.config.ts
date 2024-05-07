@@ -1,8 +1,8 @@
 import react from '@vitejs/plugin-react-swc'
 import { defineConfig, splitVendorChunkPlugin } from 'vite'
 
-export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/chat/' : '/',
+export default defineConfig(() => ({
+  base: '/',
   build: {
     chunkSizeWarningLimit: 5120,
     target: 'esnext',
