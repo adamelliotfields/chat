@@ -1,14 +1,8 @@
 {
-  "name": "chat",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "build": { "dockerfile": "Dockerfile" },
+  "postCreateCommand": "bun install --frozen-lockfile",
+  "waitFor": "postCreateCommand",
   "forwardPorts": [5173],
-  "customizations": {
-    "vscode": {
-      "extensions": ["biomejs.biome", "bradlc.vscode-tailwindcss"]
-    }
-  },
   "containerEnv": {
     "GH_TOKEN": "${localEnv:GH_TOKEN}"
   }
