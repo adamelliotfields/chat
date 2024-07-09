@@ -8,6 +8,9 @@ https://github.com/adamelliotfields/chat/assets/7433025/07565763-606b-4de3-aa2d-
 
 ## Introduction
 
+> [!NOTE]  
+> When I first made this, there was no UI for WebLLM. The official app at [chat.webllm.ai](https://chat.webllm.ai) is now the best UI for WebLLM and is actively maintained. Use that instead! 🦙
+
 [Web LLM](https://github.com/mlc-ai/web-llm) is a project under the [MLC](https://mlc.ai) (machine learning compilation) organization. It allows you to run large language models in the browser using WebGPU and WebAssembly. Check out the [example](https://github.com/mlc-ai/web-llm/tree/main/examples/simple-chat) and read the [introduction](https://mlc.ai/chapter_introduction/index.html) to learn more.
 
 In addition to [`@mlc-ai/web-llm`](https://www.npmjs.com/package/@mlc-ai/web-llm), the app uses TypeScript, React, Jotai, and Tailwind. It's built with Vite and SWC.
