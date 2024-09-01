@@ -2,14 +2,14 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/adamelliotfields/chat?devcontainer_path=.devcontainer/devcontainer.json&machine=basicLinux32gb)
 
-React chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Inspired by [Perplexity Labs](https://labs.perplexity.ai).
+> [!IMPORTANT]  
+> No longer maintained. :cry: When I first made this, there was no UI for WebLLM. The official app at [chat.webllm.ai](https://chat.webllm.ai) is now the best UI for WebLLM and is actively maintained. Use that or one of Xenova's WebGPU [spaces](https://huggingface.co/collections/Xenova/transformersjs-demos-64f9c4f49c099d93dbc611df) instead! :llama:
+
+React chat UI for [Web LLM](https://webllm.mlc.ai) on GitHub Pages. Built with Tailwind and Jotai. Inspired by [Perplexity Labs](https://labs.perplexity.ai).
 
 https://github.com/adamelliotfields/chat/assets/7433025/07565763-606b-4de3-aa2d-8d5a26c83941
 
 ## Introduction
-
-> [!NOTE]  
-> When I first made this, there was no UI for WebLLM. The official app at [chat.webllm.ai](https://chat.webllm.ai) is now the best UI for WebLLM and is actively maintained. Use that instead! 🦙
 
 [Web LLM](https://github.com/mlc-ai/web-llm) is a project under the [MLC](https://mlc.ai) (machine learning compilation) organization. It allows you to run large language models in the browser using WebGPU and WebAssembly. Check out the [example](https://github.com/mlc-ai/web-llm/tree/main/examples/simple-chat) and read the [introduction](https://mlc.ai/chapter_introduction/index.html) to learn more.
 
